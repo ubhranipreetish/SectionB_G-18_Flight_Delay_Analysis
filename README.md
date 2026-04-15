@@ -8,7 +8,7 @@
 | **Sector** | Aviation |
 | **Team ID** | DVA-B1-G18 |
 | **Section** | B |
-| **Faculty Mentor** | Satyaki Sir |
+| **Faculty Mentor** | Satyaki Das Sir |
 | **Institute** | Newton School of Technology |
 | **Submission Date** | _To be filled by team_ |
 
@@ -67,12 +67,6 @@ For full column definitions, see [`docs/data_dictionary.md`](docs/data_dictionar
 ---
 
 ## KPI Framework
-
-| KPI | Definition | Formula / Computation |
-|---|---|---|
-| _e.g. Monthly Revenue Growth %_ | _What business outcome this tracks_ | _Show the exact formula or notebook reference_ |
-| _e.g. Customer Churn Rate_ | _What business outcome this tracks_ | _Show the exact formula or notebook reference_ |
-| _e.g. Repeat Purchase Rate_ | _What business outcome this tracks_ | _Show the exact formula or notebook reference_ |
 
 | KPI | Definition | Formula / Computation |
 |---|---|---|
