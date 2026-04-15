@@ -1,47 +1,14 @@
 # NST DVA Capstone 2 - Project Repository
 
-> **Newton School of Technology | Data Visualization & Analytics**
-> A 2-week industry simulation capstone using Python, GitHub, and Tableau to convert raw data into actionable business intelligence.
-
----
-
-## Before You Start
-
-1. Rename the repository using the format `SectionName_TeamID_ProjectName`.
-2. Fill in the project details and team table below.
-3. Add the raw dataset to `data/raw/`.
-4. Complete the notebooks in order from `01` to `05`.
-5. Publish the final dashboard and add the public link in `tableau/dashboard_links.md`.
-6. Export the final report and presentation as PDFs into `reports/`.
-
-### Quick Start
-
-If you are working locally:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-jupyter notebook
-```
-
-If you are working in Google Colab:
-
-- Upload or sync the notebooks from `notebooks/`
-- Keep the final `.ipynb` files committed to GitHub
-- Export any cleaned datasets into `data/processed/`
-
----
-
 ## Project Overview
 
 | Field | Details |
 |---|---|
-| **Project Title** | _To be filled by team_ |
-| **Sector** | _e.g. Retail, Finance, Healthcare, EdTech_ |
-| **Team ID** | _e.g. DVA-B1-T3_ |
-| **Section** | _To be filled by team_ |
-| **Faculty Mentor** | _To be filled by team_ |
+| **Project Title** | Flight Delay And Cancellation Analysis |
+| **Sector** | Aviation |
+| **Team ID** | DVA-B1-G18 |
+| **Section** | B |
+| **Faculty Mentor** | Satyaki Sir |
 | **Institute** | Newton School of Technology |
 | **Submission Date** | _To be filled by team_ |
 
@@ -49,27 +16,27 @@ If you are working in Google Colab:
 
 | Role | Name | GitHub Username |
 |---|---|---|
-| Project Lead | _Name_ | `github-handle` |
-| Data Lead | _Name_ | `github-handle` |
-| ETL Lead | _Name_ | `github-handle` |
-| Analysis Lead | _Name_ | `github-handle` |
-| Visualization Lead | _Name_ | `github-handle` |
-| Strategy Lead | _Name_ | `github-handle` |
-| PPT and Quality Lead | _Name_ | `github-handle` |
+| Project Lead | Preetish Ubhrani | `ubhranipreetish` |
+| Data Lead | Alok Singh Tomar | `AlokSinghTomar100` |
+| ETL Lead | Animesh Kumar Rai | `Animesh197` |
+| Analysis Lead | Sayooj S B | `SayoojSb` |
+| Visualization Lead | Anshika Seth | `anshika292005` |
+| Strategy Lead | Siddhanth Sadshiv Raikar | `frenemy17` |
+| PPT and Quality Lead | Preetish Ubhrani | `ubhranipreetish` |
 
 ---
 
 ## Business Problem
 
-_Describe the sector context, the decision-maker this project serves, and the core business challenge being addressed. Keep this to 3-5 sentences written in plain language, as if addressing a senior stakeholder._
+Airline operations managers and aviation regulators are struggling to identify the root causes of flight delays and cancellations across routes.
 
 **Core Business Question**
 
-> _State the single main question your Tableau dashboard and Python analysis will answer._
+Which airlines, routes, seasons and delay causes are driving the worst on time performance?
 
 **Decision Supported**
 
-> _What action or decision will this analysis enable the stakeholder to take?_
+This analysis will enable airline operations managers to prioritise which delay causes, routes and carriers require targeted intervention.
 
 ---
 
@@ -77,21 +44,23 @@ _Describe the sector context, the decision-maker this project serves, and the co
 
 | Attribute | Details |
 |---|---|
-| **Source Name** | _e.g. World Bank, data.gov.in, Kaggle (raw only)_ |
-| **Direct Access Link** | _Paste the direct download or access URL_ |
-| **Row Count** | _Must be greater than 5,000_ |
-| **Column Count** | _Must be greater than 8 meaningful columns_ |
-| **Time Period Covered** | _e.g. Jan 2019 to Dec 2023_ |
-| **Format** | _e.g. CSV, JSON, Excel_ |
+| **Source Name** | Kaggle |
+| **Direct Access Link** | https://www.kaggle.com/datasets/patrickzel/flight-delay-and-cancellation-dataset-2019-2023/data?select=flights_sample_3m.csv |
+| **Row Count** | 3000000 |
+| **Column Count** | 32 |
+| **Time Period Covered** | Jan 2019 to Dec 2023 |
+| **Format** | CSV |
+
+**Key Columns Used**
 
 **Key Columns Used**
 
 | Column Name | Description | Role in Analysis |
 |---|---|---|
-| _column_1_ | _What it means_ | _Used for KPI / filter / segmentation_ |
-| _column_2_ | _What it means_ | _Used for KPI / filter / segmentation_ |
-| _column_3_ | _What it means_ | _Used for KPI / filter / segmentation_ |
-| _column_4_ | _What it means_ | _Used for KPI / filter / segmentation_ |
+| AIRLINE | IATA code identifying the operating carrier | Segmentation |
+| DEP_DELAY | Departure delay in minutes — positive = late, negative = early | KPI |
+| ORIGIN | IATA airport codes for departure airports | Segmentation |
+| CANCELLATION_CODE | Code indicating cancellation reason — A = Carrier, B = Weather, C = NAS, D = Security | Segmentation |
 
 For full column definitions, see [`docs/data_dictionary.md`](docs/data_dictionary.md).
 
@@ -105,7 +74,11 @@ For full column definitions, see [`docs/data_dictionary.md`](docs/data_dictionar
 | _e.g. Customer Churn Rate_ | _What business outcome this tracks_ | _Show the exact formula or notebook reference_ |
 | _e.g. Repeat Purchase Rate_ | _What business outcome this tracks_ | _Show the exact formula or notebook reference_ |
 
-Document KPI logic clearly in `notebooks/04_statistical_analysis.ipynb` and `notebooks/05_final_load_prep.ipynb`.
+| KPI | Definition | Formula / Computation |
+|---|---|---|
+| On Time Arrival Rate (%) | Measures the percentage of flights that arrive on time | (Flights where ARR_DELAY ≤ 15 mins ÷ Total Flights) × 100 |
+| Flight Cancellation Rate (%) | Tracks the proportion of scheduled flights that were cancelled | (Cancelled Flights ÷ Total Scheduled Flights) × 100 |
+| Average Arrival Delay | Calculates the average delay duration for flights that arrived late | Mean of ARR_DELAY for all delayed flights (ARR_DELAY > 0) |
 
 ---
 
@@ -118,13 +91,9 @@ Document KPI logic clearly in `notebooks/04_statistical_analysis.ipynb` and `not
 | **Operational View** | _Describe the detailed drill-down view_ |
 | **Main Filters** | _List the interactive filters used_ |
 
-Store dashboard screenshots in [`tableau/screenshots/`](tableau/screenshots/) and document the public links in [`tableau/dashboard_links.md`](tableau/dashboard_links.md).
-
 ---
 
 ## Key Insights
-
-_List 8-12 major findings from the analysis, written in decision language. Each insight should tell the reader what to think or act upon, not merely describe a chart._
 
 1. _Insight 1_
 2. _Insight 2_
@@ -157,8 +126,8 @@ SectionName_TeamID_ProjectName/
 |-- README.md
 |
 |-- data/
-|   |-- raw/                         # Original dataset (never edited)
-|   `-- processed/                   # Cleaned output from ETL pipeline
+|   |-- raw/                         
+|   `-- processed/                   
 |
 |-- notebooks/
 |   |-- 01_extraction.ipynb
@@ -190,7 +159,7 @@ SectionName_TeamID_ProjectName/
 
 ## Analytical Pipeline
 
-The project follows a structured 7-step workflow:
+The project follows a structured 7 step workflow:
 
 1. **Define** - Sector selected, problem statement scoped, mentor approval obtained.
 2. **Extract** - Raw dataset sourced and committed to `data/raw/`; data dictionary drafted.
