@@ -9,7 +9,7 @@
 | Animesh Kumar Rai          | [View Portfolio](https://animesh197.github.io/DVA_Portfolio/)      |
 | Sayooj S B          | [View Portfolio](https://sayoojsb.github.io/ProfileDemo/)     |
 | Anshika Seth        | [View Portfolio](https://anshika292005.github.io/)       |
-| Siddhanth S. Raikar            | [View Portfolio]()      |
+| Siddhanth S. Raikar            | [View Portfolio](https://frenemy17.github.io/dva-focused-portfolio/)      |
 
 ---
 
